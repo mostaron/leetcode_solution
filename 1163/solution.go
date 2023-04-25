@@ -2,12 +2,8 @@ package main
 
 import "fmt"
 
-/*
-**
-NOT PASSED
-*/
 func main() {
-	fmt.Println(lastSubstring("cacacb"))
+	fmt.Println(lastSubstring(""))
 }
 func lastSubstring(s string) string {
 	i, j := 0, 1
@@ -17,9 +13,9 @@ func lastSubstring(s string) string {
 			k++
 		}
 		if j+k < len(s) && s[i+k] < s[j+k] {
-			fmt.Println("move i from ", i, "to", j, "and j from ", j, "to ", max(j+1, i+k+1))
+			tmp := i
 			i = j
-			j = j + 1
+			j = max(j+1, tmp+k+1)
 		} else {
 			j = j + k + 1
 		}
